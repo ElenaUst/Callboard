@@ -88,18 +88,29 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# Настройки базы данных для запуска проекта на локальной машине
+# Настройки базы данных для запуска проекта через Docker
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'callboard',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-
+        'HOST': 'db',
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD')
     }
 }
+
+# Настройки базы данных для запуска проекта на локальной машине
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'callboard',
+#         'USER': 'postgres',
+#         'HOST': '127.0.0.1',
+#         'PORT': 5432,
+#         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+#
+#     }
+# }
 
 
 # Password validation
